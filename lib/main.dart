@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:medinate/pages/home_page.dart';
-import 'package:medinate/pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +16,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.red),
       debugShowCheckedModeBanner: false,
-      home: TabBarDemo(),
+      home: HomePage(),
     );
   }
 }
