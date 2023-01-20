@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 class DonorReg extends StatelessWidget{
-    TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController fname = TextEditingController();
+  TextEditingController lname = TextEditingController();
+  TextEditingController age = TextEditingController();
+  TextEditingController gender = TextEditingController();
+  TextEditingController bg = TextEditingController();
+  TextEditingController useraddress = TextEditingController();
+  TextEditingController useremail = TextEditingController();
+  TextEditingController userphone = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController userpass = TextEditingController();
   @override
   Widget build(BuildContext context){
     return Padding(
@@ -13,9 +21,11 @@ class DonorReg extends StatelessWidget{
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
+
                   'Register as a blood donor',
+
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 95, 11, 22),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
@@ -23,16 +33,96 @@ class DonorReg extends StatelessWidget{
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Sign up',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: fname,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'First Name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: lname,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Last Name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: age,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Age',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: gender,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Gender',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: bg,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Blood Group',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: useraddress,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Address',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: useremail,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email Address',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: userphone,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Mobile Number',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: username,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Username',
                 ),
               ),
             ),
@@ -40,44 +130,23 @@ class DonorReg extends StatelessWidget{
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: userpass,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text('Forgot Password',),
-            ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Sign Up'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    print(username.text);
+                    print(userpass.text);
                   },
                 )
-            ),
-            Row(
-              children: <Widget>[
-                const Text('Does not have account?'),
-                TextButton(
-                  child: const Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {
-                    //signup screen
-                  },
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
             ),
           ],
         ));

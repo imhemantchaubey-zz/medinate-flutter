@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 
-class OrgReg extends StatelessWidget{
-    TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class OrgReg extends StatefulWidget{
+  @override
+  State<OrgReg> createState() => _OrgRegState();
+}
+
+class _OrgRegState extends State<OrgReg> {
+  // var _dropdownValue = "Select";
+  // void dropdownCallback(String? selectedValue) {
+  //   if(selectedValue is String) {
+  //     setState(() {
+  //       _dropdownValue = selectedValue;
+  //     });
+  //   }
+  // }
+
+  TextEditingController orgname = TextEditingController();
+  TextEditingController orgemail = TextEditingController();
+  TextEditingController orgcontact = TextEditingController();
+  TextEditingController orgadd = TextEditingController();
+  TextEditingController orgsite = TextEditingController();
+  TextEditingController orguser = TextEditingController();
+  TextEditingController orgpass = TextEditingController();
+
   @override
   Widget build(BuildContext context){
     return Padding(
@@ -15,7 +35,7 @@ class OrgReg extends StatelessWidget{
                 child: const Text(
                   'Register your organization',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 24, 21, 167),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
@@ -23,16 +43,89 @@ class OrgReg extends StatelessWidget{
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Enter your Organization\'s details',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
+                controller: orgname,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Organization Name',
+                ),
+              ),
+            ),
+            // Container(
+            //   padding: const EdgeInsets.all(10),
+            //   child: DropdownButton(
+            //       // Down Arrow Icon
+            //       icon: const Icon(Icons.keyboard_arrow_down),    
+            //       items: const [
+            //         DropdownMenuItem(child: Text("Public"), value: "Public"),
+            //         DropdownMenuItem(child: Text("Private"), value: "Private"),
+            //         DropdownMenuItem(child: Text("NGO"), value: "NGO")
+            //       ],
+            //       //items: _salutations.map((String item => DropdownMenuItem<String>(child: Text(item)), value: item)).toList(),
+            //       value: _dropdownValue,
+            //       onChanged: dropdownCallback,
+            //   ),
+            
+              /*child: TextField(
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Organization Type',
+                ),
+              ),
+            ),*/
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orgemail,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email ID',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orgcontact,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Contact Number',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orgadd,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Address',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orgsite,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Website',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orguser,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Organization Username',
                 ),
               ),
             ),
@@ -40,7 +133,7 @@ class OrgReg extends StatelessWidget{
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: orgpass,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
@@ -57,29 +150,14 @@ class OrgReg extends StatelessWidget{
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Sign Up'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    print(orguser.text);
+                    print(orgpass.text);
                   },
                 )
-            ),
-            Row(
-              children: <Widget>[
-                const Text('Does not have account?'),
-                TextButton(
-                  child: const Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {
-                    //signup screen
-                  },
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
             ),
           ],
-        ));
+    ));
   }
 }
