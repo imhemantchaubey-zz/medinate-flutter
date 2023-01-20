@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CampaignReg extends StatelessWidget {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController campname = TextEditingController();
+  TextEditingController campaddress = TextEditingController();
+  TextEditingController campdate = TextEditingController();
+  TextEditingController participants = TextEditingController();
+  TextEditingController orguser = TextEditingController();
+  TextEditingController orgpass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,10 +34,50 @@ class CampaignReg extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: campname,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Camp Name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: campaddress,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Camp Address',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: campdate,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Date',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: participants,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Expected Participants',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: orguser,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Organization Username',
                 ),
               ),
             ),
@@ -41,7 +85,7 @@ class CampaignReg extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: orgpass,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
@@ -60,10 +104,10 @@ class CampaignReg extends StatelessWidget {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Register'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    print(orguser.text);
+                    print(orgpass.text);
                   },
                 )),
             Row(
