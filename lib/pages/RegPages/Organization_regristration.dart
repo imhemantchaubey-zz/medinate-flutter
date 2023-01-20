@@ -15,7 +15,7 @@ class OrgReg extends StatelessWidget{
                 child: const Text(
                   'Register your organization',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 24, 21, 167),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
