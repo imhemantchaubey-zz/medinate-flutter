@@ -15,7 +15,7 @@ class CampaignReg extends StatelessWidget{
                 child: const Text(
                   'Register your campaign',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 12, 167, 63),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),

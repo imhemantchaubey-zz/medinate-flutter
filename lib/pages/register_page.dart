@@ -24,9 +24,9 @@ class TabBarDemo extends StatelessWidget {
           ),
           body:  TabBarView(
             children: [
+              DonorReg(),
               OrgReg(),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
+              CampaignReg(),
             ],
           ),
         ),

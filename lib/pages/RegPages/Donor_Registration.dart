@@ -17,7 +17,7 @@ class DonorReg extends StatelessWidget{
                   'Register as a blood donor',
 
                   style: TextStyle(
-                      color: Color.fromARGB(255, 168, 26, 45),
+                      color: Color.fromARGB(255, 95, 11, 22),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
