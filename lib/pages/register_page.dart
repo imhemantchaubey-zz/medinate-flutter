@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:./medinate/pages/RegPages/Donor_Registration.dart';
+import 'package:./medinate/pages/RegPages/Blood_drive_registration.dart';
+import 'package:./medinate/pages/RegPages/Organization_regristration.dart';
 
 class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
@@ -22,7 +24,7 @@ class TabBarDemo extends StatelessWidget {
           ),
           body:  TabBarView(
             children: [
-              DonorReg(),
+              OrgReg(),
               Icon(Icons.directions_transit),
               Icon(Icons.directions_bike),
             ],
