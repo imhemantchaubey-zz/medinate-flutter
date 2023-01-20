@@ -10,16 +10,15 @@ class CampaignReg extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                'Register your campaign',
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30),
-              ),
-            ),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  'Register your campaign',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 12, 167, 63),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30),
+                )),
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),

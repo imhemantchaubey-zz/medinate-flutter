@@ -13,9 +13,11 @@ class DonorReg extends StatelessWidget{
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
+
                   'Register as a blood donor',
+
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 95, 11, 22),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
