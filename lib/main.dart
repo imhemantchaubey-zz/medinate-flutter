@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medinate/pages/home_page.dart';
+import 'package:medinate/pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: TabBarDemo(),
     );
   }
 }
