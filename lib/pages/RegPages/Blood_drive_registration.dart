@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CampaignReg extends StatelessWidget{
-    TextEditingController nameController = TextEditingController();
+class CampaignReg extends StatelessWidget {
+  TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -20,12 +20,13 @@ class CampaignReg extends StatelessWidget{
                       fontSize: 30),
                 )),
             Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20),
-                )),
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: const Text(
+                'Sign in',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -51,7 +52,9 @@ class CampaignReg extends StatelessWidget{
               onPressed: () {
                 //forgot password screen
               },
-              child: const Text('Forgot Password',),
+              child: const Text(
+                'Forgot Password',
+              ),
             ),
             Container(
                 height: 50,
@@ -62,8 +65,7 @@ class CampaignReg extends StatelessWidget{
                     print(nameController.text);
                     print(passwordController.text);
                   },
-                )
-            ),
+                )),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
