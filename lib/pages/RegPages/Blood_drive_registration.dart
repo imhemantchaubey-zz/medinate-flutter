@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DonorReg extends StatelessWidget{
+class CampaignReg extends StatelessWidget{
     TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -13,7 +13,7 @@ class DonorReg extends StatelessWidget{
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Register as a blood donor',
+                  'Register your campaign',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
