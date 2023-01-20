@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: new Text("Medinate.com"),
         leading:IconButton( 
           icon:Image.asset('images/logo.jpeg', fit: BoxFit.contain,height: 32,),
