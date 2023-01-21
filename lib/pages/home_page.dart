@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:medinate/pages/registration_page.dart';
+import 'package:medinate/pages/search.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -91,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 disabledForegroundColor: Colors.red,
               ),
               onPressed: () {
-                print("hello from search button...!");
+                 _navigateToDonateScreen(context);
               },
               child: const Text('Search Blood near you'),
             ),
@@ -172,7 +173,7 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromARGB(255, 12, 129, 57),
               child: InkWell(
                 onTap: () {
-                  print('hello from the donate button on home screen');
+                 ;
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
@@ -195,4 +196,7 @@ class _HomePageState extends State<HomePage> {
 }
 void _navigateToNextScreen(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarDemo()));
+  }
+void _navigateToDonateScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchBox()));
   }
