@@ -44,10 +44,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.blue,
+                foregroundColor: Colors.white,
                 disabledForegroundColor: Colors.red,
               ),
-              onPressed: null,
+              onPressed: () {
+                print("hello from search button...!");
+              },
               child: const Text('Search Blood near you'),
             ),
           ),
