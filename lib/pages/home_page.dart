@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
-  
   const HomePage({super.key});
 
   @override
@@ -38,7 +37,6 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -58,30 +56,32 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: ListView(children: [
           DropdownSearch<String>(
-
-    popupProps: PopupProps.menu(
-        showSelectedItems: true,
-        disabledItemFn: (String s) => s.startsWith('I'),
-    ),
-    items: ["A+","A-","B+","B-","AB+","AB-","O+","O-"],
-    dropdownDecoratorProps: DropDownDecoratorProps(
-        dropdownSearchDecoration: InputDecoration(
-            labelText: "Menu mode",
-            hintText: "country in menu mode",
-        ),
-    ),
-    onChanged: print,
-    selectedItem: "Brazil",
-),
-TextButton(
-  style: TextButton.styleFrom(
-    foregroundColor: Colors.blue,
-    disabledForegroundColor: Colors.red,
-  ),
-  onPressed: null,
-  child: Text('Search Blood near you'),
-),
-
+            popupProps: PopupProps.menu(
+              showSelectedItems: true,
+              disabledItemFn: (String s) => s.startsWith('I'),
+            ),
+            items: const ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+            dropdownDecoratorProps: const DropDownDecoratorProps(
+              dropdownSearchDecoration: InputDecoration(
+                labelText: "Menu mode",
+              ),
+            ),
+            onChanged: print,
+            selectedItem: "A+",
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                disabledForegroundColor: Colors.red,
+              ),
+              onPressed: () {
+                print("hello from search button...!");
+              },
+              child: const Text('Search Blood near you'),
+            ),
+          ),
           CarouselSlider(
             items: [
               Container(
@@ -126,26 +126,26 @@ TextButton(
               viewportFraction: 0.8,
             ),
           ),
-          
         ]),
       ),
       bottomNavigationBar: Row(
         children: [
-          Material(
-            color: Color.fromARGB(255, 160, 44, 44),
-            child: InkWell(
-              onTap: () {
-                //print('called on tap');
-              },
-              child: const SizedBox(
-                height: kToolbarHeight,
-                width: 500 ,
-                child: Center(
-                  child: Text(
-                    'Register',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+          Expanded(
+            child: Material(
+              color: Colors.red,
+              child: InkWell(
+                onTap: () {
+                  print('hello from the register button on home screen');
+                },
+                child: const SizedBox(
+                  height: kToolbarHeight,
+                  child: Center(
+                    child: Text(
+                      'Register',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -154,14 +154,13 @@ TextButton(
           ),
           Expanded(
             child: Material(
-              color: const Color(0xffff8906),
+              color: Colors.yellow,
               child: InkWell(
                 onTap: () {
-                  //print('called on tap');
+                  print('hello from the donate button on home screen');
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
-                  width: 500,
                   child: Center(
                     child: Text(
                       'Donate',
