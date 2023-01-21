@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medinate/pages/organization_registration_page.dart';
 import 'blood_drive_registration_page.dart';
 import 'donor_registration_page.dart';
-
+import 'package:medinate/pages/home_page.dart';
 class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
 
@@ -31,7 +31,14 @@ class TabBarDemo extends StatelessWidget {
                 ),
               ],
             ),
+            centerTitle: true,
             title: const Text('Registration Page'),
+            leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: (){
+              _navigateToHomeScreen(context);
+            },
+          )
           ),
           body: TabBarView(
             children: [
@@ -45,3 +52,6 @@ class TabBarDemo extends StatelessWidget {
     );
   }
 }
+void _navigateToHomeScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+  }

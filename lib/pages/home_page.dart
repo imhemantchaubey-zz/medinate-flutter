@@ -142,7 +142,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ]),
+        
       ),
+      
+
       bottomNavigationBar: Row(
         children: [
           Expanded(
@@ -192,6 +195,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+    
   }
 }
 void _navigateToNextScreen(BuildContext context) {
