@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -22,60 +23,61 @@ class _HomePageState extends State<HomePage> {
             ),
             onPressed: () {},
           )),
-      body: Container(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: ListView(children: [
           DropdownSearch<String>(
-    popupProps: PopupProps.menu(
-        showSelectedItems: true,
-        disabledItemFn: (String s) => s.startsWith('I'),
-    ),
-    items: ["A+","A-","B+","B-","AB+","AB-","O+","O-"],
-    dropdownDecoratorProps: DropDownDecoratorProps(
-        dropdownSearchDecoration: InputDecoration(
-            labelText: "Menu mode",
-            hintText: "country in menu mode",
-        ),
-    ),
-    onChanged: print,
-    selectedItem: "Brazil",
-),
-TextButton(
-  style: TextButton.styleFrom(
-    foregroundColor: Colors.blue,
-    disabledForegroundColor: Colors.red,
-  ),
-  onPressed: null,
-  child: Text('Search Blood near you'),
-),
-
+            popupProps: PopupProps.menu(
+              showSelectedItems: true,
+              disabledItemFn: (String s) => s.startsWith('I'),
+            ),
+            items: const ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+            dropdownDecoratorProps: const DropDownDecoratorProps(
+              dropdownSearchDecoration: InputDecoration(
+                labelText: "Menu mode",
+              ),
+            ),
+            onChanged: print,
+            selectedItem: "A+",
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                disabledForegroundColor: Colors.red,
+              ),
+              onPressed: null,
+              child: const Text('Search Blood near you'),
+            ),
+          ),
           CarouselSlider(
             items: [
               Container(
-                margin: EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  image: new DecorationImage(
+                  image: const DecorationImage(
                     image: ExactAssetImage('assets/images/poster1.jpg'),
-                    
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  image: new DecorationImage(
+                  image: const DecorationImage(
                     image: ExactAssetImage('assets/images/poster2.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(8.0),
+                margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  image: new DecorationImage(
+                  image: const DecorationImage(
                     image: ExactAssetImage('assets/images/poster3.jpg'),
                     fit: BoxFit.cover,
                   ),

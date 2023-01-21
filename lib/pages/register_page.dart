@@ -16,14 +16,23 @@ class TabBarDemo extends StatelessWidget {
           appBar: AppBar(
             bottom: const TabBar(
               tabs: [
-                Tab(text:"Donor Registration",icon: Icon(Icons.attribution)),
-                Tab(text:"Organization Registration",icon: Icon(Icons.business)),
-                Tab(text:"Register VDB camp",icon: Icon(Icons.chalet)),
+                Tab(
+                  text: "Donor Registration",
+                  icon: Icon(Icons.attribution),
+                ),
+                Tab(
+                  text: "Organization Registration",
+                  icon: Icon(Icons.business),
+                ),
+                Tab(
+                  text: "Register VDB camp",
+                  icon: Icon(Icons.chalet),
+                ),
               ],
             ),
             title: const Text('Registration Page'),
           ),
-          body:  TabBarView(
+          body: TabBarView(
             children: [
               DonorReg(),
               OrgReg(),
