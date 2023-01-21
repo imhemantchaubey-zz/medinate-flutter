@@ -11,11 +11,11 @@ To help these patients and their families win the battle of life, the medinate.c
 
 # Use Cases:
 
-● Useful in pandemic situations providing real time information of available healthcare resources to the individuals in need.
-● Networking of Blood Banks, healthcare NGOs and campaigns.
-● Safe and Adequate Blood Supplies.
-● Prevention of wastage of blood and medicine.
-● Donor Repository helpful for getting potential donors in emergency.
+- Useful in pandemic situations providing real time information of available healthcare resources to the individuals in need.
+- Networking of Blood Banks, healthcare NGOs and campaigns.
+- Safe and Adequate Blood Supplies.
+- Prevention of wastage of blood and medicine.
+- Donor Repository helpful for getting potential donors in emergency.
 
 
 ## Getting Started
