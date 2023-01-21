@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-
+var blood;
+var place;
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
@@ -69,7 +70,11 @@ class _HomePageState extends State<HomePage> {
                 labelText: "Blood Group",
               ),
             ),
-            onChanged: print,
+            onChanged: (newValue) {
+              setState(() {
+                blood = newValue;
+              });
+            },
             selectedItem: "A+",
           ),
           DropdownSearch<String>(
@@ -90,7 +95,11 @@ class _HomePageState extends State<HomePage> {
                 labelText: "Select Location",
               ),
             ),
-            onChanged: print,
+            onChanged: (newValue) {
+              setState(() {
+                place = newValue;
+              });
+            },
             selectedItem: "Pune",
           ),
           Padding(

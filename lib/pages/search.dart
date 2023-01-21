@@ -1,5 +1,9 @@
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/container.dart';
 import 'package:medinate/pages/home_page.dart';
+import 'package:medinate/pages/organization_registration_page.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchBox extends StatefulWidget {
   const SearchBox({super.key});
@@ -10,22 +14,52 @@ class SearchBox extends StatefulWidget {
 
 class _SearchBoxState extends State<SearchBox> {
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Blood Avalibility"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            _navigateToHomeScreen(context);
-          },
+          title: const Text("Blood Avalibility"),
+          leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: (){
+              _navigateToHomeScreen(context);
+            },
+          ),
         ),
-      ),
     );
-  }
+  
 }
-
+}
+//FirebaseFirestore firestore = FirebaseFirestore.instance;
+getData(){
+//   StreamBuilder<QuerySnapshot>(
+//   stream: FirebaseFirestore.instance.collection('Orgs').snapshots(),
+//   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//     if (snapshot.hasError)
+//       return Text('Error: ${snapshot.error}');
+//     if (!snapshot.hasData)
+//       return Text('Loading...');
+//     return ListView(
+//       children: snapshot.data.documents.map((DocumentSnapshot document) {
+//         return ListTile(
+//           title: Text(document['title']),
+//           subtitle: Text(document['subtitle']),
+//         );
+//       }).toList(),
+//     );
+//   },
+// );
+StreamBuilder<DocumentSnapshot>(
+  stream: FirebaseFirestore.instance.collection('Orgs').doc('G7XzQA5fkCegyCTIRVbU').snapshots(),
+  builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+    if (snapshot.hasError)
+      return Text('Error: ${snapshot.error}');
+    if (!snapshot.hasData)
+      return Text('Loading...');
+    return Text(snapshot.data?['title']);
+  },
+);
+}
 void _navigateToHomeScreen(BuildContext context) {
-  Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => HomePage()));
-}
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+  }
