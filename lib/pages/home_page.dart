@@ -3,7 +3,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
-  
   const HomePage({super.key});
 
   @override
@@ -38,7 +37,6 @@ class _HomePageState extends State<HomePage> {
       _selectedIndex = index;
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -128,26 +126,26 @@ class _HomePageState extends State<HomePage> {
               viewportFraction: 0.8,
             ),
           ),
-          
         ]),
       ),
       bottomNavigationBar: Row(
         children: [
-          Material(
-            color: Color.fromARGB(255, 160, 44, 44),
-            child: InkWell(
-              onTap: () {
-                //print('called on tap');
-              },
-              child: const SizedBox(
-                height: kToolbarHeight,
-                width: 500 ,
-                child: Center(
-                  child: Text(
-                    'Register',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+          Expanded(
+            child: Material(
+              color: Colors.red,
+              child: InkWell(
+                onTap: () {
+                  print('hello from the register button on home screen');
+                },
+                child: const SizedBox(
+                  height: kToolbarHeight,
+                  child: Center(
+                    child: Text(
+                      'Register',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -156,14 +154,13 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: Material(
-              color: const Color(0xffff8906),
+              color: Colors.yellow,
               child: InkWell(
                 onTap: () {
-                  //print('called on tap');
+                  print('hello from the donate button on home screen');
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
-                  width: 500,
                   child: Center(
                     child: Text(
                       'Donate',
