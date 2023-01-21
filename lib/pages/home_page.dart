@@ -106,6 +106,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Search Blood near you'),
             ),
           ),
+         
           CarouselSlider(
             items: [
               Container(
