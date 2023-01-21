@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class CampaignReg extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<UserCredential> signInWithEmailAndPassword(String email, String password) async {
+    return await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+}
   TextEditingController campname = TextEditingController();
   TextEditingController campaddress = TextEditingController();
   TextEditingController campdate = TextEditingController();
@@ -106,8 +115,8 @@ class CampaignReg extends StatelessWidget {
                 child: ElevatedButton(
                   child: const Text('Register'),
                   onPressed: () {
-                    print(orguser.text);
-                    print(orgpass.text);
+                    signInWithEmailAndPassword(orguser.text, orgpass.text);
+                    print("Log in successful");
                   },
                 )),
             Row(
