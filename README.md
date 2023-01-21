@@ -1,6 +1,7 @@
 # medinate
 
-A new Flutter project.
+A robust database management system for healthcare management organisations, volunteering services, NGOs and campaigns that deal with donations of blood and medicine, as well as provide an interface for the individual donors and receivers for easy and effective access to the available resources and information.
+Built using Flutter and Firebase.
 
 ## Getting Started
 
