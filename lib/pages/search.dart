@@ -14,24 +14,8 @@ class SearchBox extends StatefulWidget {
 
 class _SearchBoxState extends State<SearchBox> {
   @override
-  
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text("Blood Avalibility"),
-          leading: new IconButton(
-            icon: new Icon(Icons.arrow_back),
-            onPressed: (){
-              _navigateToHomeScreen(context);
-            },
-          ),
-        ),
-    );
-  
-}
-}
-//FirebaseFirestore firestore = FirebaseFirestore.instance;
-getData(){
+  //FirebaseFirestore firestore = FirebaseFirestore.instance;
+// getData(){
 //   StreamBuilder<QuerySnapshot>(
 //   stream: FirebaseFirestore.instance.collection('Orgs').snapshots(),
 //   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -49,16 +33,45 @@ getData(){
 //     );
 //   },
 // );
-StreamBuilder<DocumentSnapshot>(
-  stream: FirebaseFirestore.instance.collection('Orgs').doc('G7XzQA5fkCegyCTIRVbU').snapshots(),
-  builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-    if (snapshot.hasError)
-      return Text('Error: ${snapshot.error}');
-    if (!snapshot.hasData)
-      return Text('Loading...');
-    return Text(snapshot.data?['title']);
-  },
-);
+// StreamBuilder<DocumentSnapshot>(
+//   stream: FirebaseFirestore.instance.collection('Orgs').doc('G7XzQA5fkCegyCTIRVbU').snapshots(),
+//   builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+//     if (snapshot.hasError)
+//       return Text('Error: ${snapshot.error}');
+//     if (!snapshot.hasData)
+//       return Text('Loading...');
+//     return Text(snapshot.data?['title']);
+//   },
+// );
+// }
+
+  Widget build(BuildContext context) {
+    //getData();
+    var db = FirebaseFirestore.instance;
+
+    db.collection("users").get().then((event) {
+    for (var doc in event.docs) {
+      if(doc.data() == blood)
+      print("${doc.id} => ${doc.data()}");
+    }
+    // db.collection("cities").get().then(
+    //   (res) => print("Successfully completed"),
+    //   onError: (e) => print("Error completing: $e"),
+    // );
+});
+    return Scaffold(
+      appBar: AppBar(
+          title: const Text("Blood Avalibility"),
+          leading: new IconButton(
+            icon: new Icon(Icons.arrow_back),
+            onPressed: (){
+              _navigateToHomeScreen(context);
+            },
+          ),
+        ),
+    );
+  
+}
 }
 void _navigateToHomeScreen(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
