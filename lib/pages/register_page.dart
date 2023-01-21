@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:./medinate/pages/RegPages/Blood_drive_registration.dart';
+import 'package:./medinate/pages/RegPages/Donor_Registration.dart';
 import 'package:./medinate/pages/RegPages/Organization_regristration.dart';
 
 class TabBarDemo extends StatelessWidget {
