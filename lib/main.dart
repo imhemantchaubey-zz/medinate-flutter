@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.red),
       debugShowCheckedModeBanner: false,
-      home: TabBarDemo(),
+      home: HomePage(),
     );
   }
 }
