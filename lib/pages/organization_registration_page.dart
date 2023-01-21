@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class OrgReg extends StatefulWidget {
   @override
@@ -6,15 +7,13 @@ class OrgReg extends StatefulWidget {
 }
 
 class _OrgRegState extends State<OrgReg> {
-  // var _dropdownValue = "Select";
-  // void dropdownCallback(String? selectedValue) {
-  //   if(selectedValue is String) {
-  //     setState(() {
-  //       _dropdownValue = selectedValue;
-  //     });
-  //   }
-  // }
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<UserCredential> signUpWithEmailAndPassword(String email, String password) async {
+    return await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+}
   TextEditingController orgname = TextEditingController();
   TextEditingController orgemail = TextEditingController();
   TextEditingController orgcontact = TextEditingController();
@@ -154,8 +153,7 @@ class _OrgRegState extends State<OrgReg> {
                 child: ElevatedButton(
                   child: const Text('Sign Up'),
                   onPressed: () {
-                    print(orguser.text);
-                    print(orgpass.text);
+                    signUpWithEmailAndPassword(orguser.text, orgpass.text);
                   },
                 )),
           ],

@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DonorReg extends StatelessWidget{
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<UserCredential> signUpWithEmailAndPassword(String email, String password) async {
+    return await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+}
   TextEditingController fname = TextEditingController();
   TextEditingController lname = TextEditingController();
   TextEditingController age = TextEditingController();
@@ -149,8 +157,7 @@ class DonorReg extends StatelessWidget{
                 child: ElevatedButton(
                   child: const Text('Sign Up'),
                   onPressed: () {
-                    print(username.text);
-                    print(userpass.text);
+                    signUpWithEmailAndPassword(username.text, userpass.text);
                   },
                 )
             ),
