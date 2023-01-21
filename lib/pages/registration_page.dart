@@ -1,82 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:medinate/pages/organization_registration_page.dart';
+import 'blood_drive_registration_page.dart';
+import 'donor_registration_page.dart';
 
-class RegistrationPage extends StatefulWidget {
-  @override
-  _RegistrationPageState createState() => _RegistrationPageState();
-}
-
-class _RegistrationPageState extends State<RegistrationPage> {
-  final _formKey = GlobalKey<FormState>();
-
-  late String _name;
-  late String _email;
-  late String _bloodType;
-  late String _phoneNumber;
+class TabBarDemo extends StatelessWidget {
+  const TabBarDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Blood Donor Registration',
-        ),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Name'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter your name';
-                }
-                return null;
-              },
-              onSaved: (value) => _name = value!,
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                  text: "Donor Registration",
+                  icon: Icon(Icons.attribution),
+                ),
+                Tab(
+                  text: "Organization Registration",
+                  icon: Icon(Icons.business),
+                ),
+                Tab(
+                  text: "Register VDB camp",
+                  icon: Icon(Icons.chalet),
+                ),
+              ],
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Email'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
-              onSaved: (value) => _email = value!,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Blood Type'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter your blood type';
-                }
-                return null;
-              },
-              onSaved: (value) => _bloodType = value!,
-            ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Phone Number'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter your phone number';
-                }
-                return null;
-              },
-              onSaved: (value) => _phoneNumber = value!,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                  // Save the data to a database or send it to a server
-                }
-              },
-              child: Text(
-                'Submit',
-              ),
-            ),
-          ],
+            title: const Text('Registration Page'),
+          ),
+          body: TabBarView(
+            children: [
+              DonorReg(),
+              OrgReg(),
+              CampaignReg(),
+            ],
+          ),
         ),
       ),
     );

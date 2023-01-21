@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class OrgReg extends StatefulWidget{
+class OrgReg extends StatefulWidget {
   @override
   State<OrgReg> createState() => _OrgRegState();
 }
@@ -24,7 +24,7 @@ class _OrgRegState extends State<OrgReg> {
   TextEditingController orgpass = TextEditingController();
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
@@ -60,7 +60,7 @@ class _OrgRegState extends State<OrgReg> {
             //   padding: const EdgeInsets.all(10),
             //   child: DropdownButton(
             //       // Down Arrow Icon
-            //       icon: const Icon(Icons.keyboard_arrow_down),    
+            //       icon: const Icon(Icons.keyboard_arrow_down),
             //       items: const [
             //         DropdownMenuItem(child: Text("Public"), value: "Public"),
             //         DropdownMenuItem(child: Text("Private"), value: "Private"),
@@ -70,8 +70,8 @@ class _OrgRegState extends State<OrgReg> {
             //       value: _dropdownValue,
             //       onChanged: dropdownCallback,
             //   ),
-            
-              /*child: TextField(
+
+            /*child: TextField(
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -144,7 +144,9 @@ class _OrgRegState extends State<OrgReg> {
               onPressed: () {
                 //forgot password screen
               },
-              child: const Text('Forgot Password',),
+              child: const Text(
+                'Forgot Password',
+              ),
             ),
             Container(
                 height: 50,
@@ -155,9 +157,8 @@ class _OrgRegState extends State<OrgReg> {
                     print(orguser.text);
                     print(orgpass.text);
                   },
-                )
-            ),
+                )),
           ],
-    ));
+        ));
   }
 }
