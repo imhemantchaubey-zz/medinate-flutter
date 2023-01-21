@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
-
+import 'package:medinate/pages/registration_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {},
           )),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+        padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
         child: ListView(children: [
           DropdownSearch<String>(
             popupProps: PopupProps.menu(
@@ -63,11 +63,25 @@ class _HomePageState extends State<HomePage> {
             items: const ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
             dropdownDecoratorProps: const DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
-                labelText: "Menu mode",
+                labelText: "Blood Group",
               ),
             ),
             onChanged: print,
             selectedItem: "A+",
+          ),
+          DropdownSearch<String>(
+            popupProps: PopupProps.menu(
+              showSelectedItems: true,
+              disabledItemFn: (String s) => s.startsWith('I'),
+            ),
+            items: const ["Mumbai", "Pune", "Delhi", "Patna", "Chennai", "Ratnagiri"],
+            dropdownDecoratorProps: const DropDownDecoratorProps(
+              dropdownSearchDecoration: InputDecoration(
+                labelText: "Select Location",
+              ),
+            ),
+            onChanged: print,
+            selectedItem: "Pune",
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
@@ -135,7 +149,8 @@ class _HomePageState extends State<HomePage> {
               color: Colors.red,
               child: InkWell(
                 onTap: () {
-                  print('hello from the register button on home screen');
+                  _navigateToNextScreen(context);
+  
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
@@ -154,7 +169,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: Material(
-              color: Colors.yellow,
+              color: Color.fromARGB(255, 12, 129, 57),
               child: InkWell(
                 onTap: () {
                   print('hello from the donate button on home screen');
@@ -178,3 +193,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarDemo()));
+  }
