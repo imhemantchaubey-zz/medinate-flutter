@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:medinate/pages/donation_page.dart';
 import 'package:medinate/pages/registration_page.dart';
 import 'package:medinate/pages/search.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -75,7 +77,14 @@ class _HomePageState extends State<HomePage> {
               showSelectedItems: true,
               disabledItemFn: (String s) => s.startsWith('I'),
             ),
-            items: const ["Mumbai", "Pune", "Delhi", "Patna", "Chennai", "Ratnagiri"],
+            items: const [
+              "Mumbai",
+              "Pune",
+              "Delhi",
+              "Patna",
+              "Chennai",
+              "Ratnagiri"
+            ],
             dropdownDecoratorProps: const DropDownDecoratorProps(
               dropdownSearchDecoration: InputDecoration(
                 labelText: "Select Location",
@@ -92,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                 disabledForegroundColor: Colors.red,
               ),
               onPressed: () {
-                 _navigateToDonateScreen(context);
+                _navigateToDonateScreen(context);
               },
               child: const Text('Search Blood near you'),
             ),
@@ -151,7 +160,6 @@ class _HomePageState extends State<HomePage> {
               child: InkWell(
                 onTap: () {
                   _navigateToNextScreen(context);
-  
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
@@ -173,7 +181,7 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromARGB(255, 12, 129, 57),
               child: InkWell(
                 onTap: () {
-                 ;
+                  _navigateToDonationPageScreen(context);
                 },
                 child: const SizedBox(
                   height: kToolbarHeight,
@@ -194,9 +202,18 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
 void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => TabBarDemo()));
-  }
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => TabBarDemo()));
+}
+
 void _navigateToDonateScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchBox()));
-  }
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => SearchBox()));
+}
+
+void _navigateToDonationPageScreen(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => DonationPage()));
+}
