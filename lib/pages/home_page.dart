@@ -58,30 +58,32 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: ListView(children: [
           DropdownSearch<String>(
-
-    popupProps: PopupProps.menu(
-        showSelectedItems: true,
-        disabledItemFn: (String s) => s.startsWith('I'),
-    ),
-    items: ["A+","A-","B+","B-","AB+","AB-","O+","O-"],
-    dropdownDecoratorProps: DropDownDecoratorProps(
-        dropdownSearchDecoration: InputDecoration(
-            labelText: "Menu mode",
-            hintText: "country in menu mode",
-        ),
-    ),
-    onChanged: print,
-    selectedItem: "Brazil",
-),
-TextButton(
-  style: TextButton.styleFrom(
-    foregroundColor: Colors.blue,
-    disabledForegroundColor: Colors.red,
-  ),
-  onPressed: null,
-  child: Text('Search Blood near you'),
-),
-
+            popupProps: PopupProps.menu(
+              showSelectedItems: true,
+              disabledItemFn: (String s) => s.startsWith('I'),
+            ),
+            items: const ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+            dropdownDecoratorProps: const DropDownDecoratorProps(
+              dropdownSearchDecoration: InputDecoration(
+                labelText: "Menu mode",
+              ),
+            ),
+            onChanged: print,
+            selectedItem: "A+",
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                disabledForegroundColor: Colors.red,
+              ),
+              onPressed: () {
+                print("hello from search button...!");
+              },
+              child: const Text('Search Blood near you'),
+            ),
+          ),
           CarouselSlider(
             items: [
               Container(
