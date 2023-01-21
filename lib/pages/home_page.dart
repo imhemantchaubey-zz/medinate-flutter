@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
+  
   const HomePage({super.key});
 
   @override
@@ -10,8 +11,38 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Settings',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+  
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
           title: const Text("Medinate.com"),
@@ -27,30 +58,30 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: ListView(children: [
           DropdownSearch<String>(
-            popupProps: PopupProps.menu(
-              showSelectedItems: true,
-              disabledItemFn: (String s) => s.startsWith('I'),
-            ),
-            items: const ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
-            dropdownDecoratorProps: const DropDownDecoratorProps(
-              dropdownSearchDecoration: InputDecoration(
-                labelText: "Menu mode",
-              ),
-            ),
-            onChanged: print,
-            selectedItem: "A+",
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 80),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.blue,
-                disabledForegroundColor: Colors.red,
-              ),
-              onPressed: null,
-              child: const Text('Search Blood near you'),
-            ),
-          ),
+
+    popupProps: PopupProps.menu(
+        showSelectedItems: true,
+        disabledItemFn: (String s) => s.startsWith('I'),
+    ),
+    items: ["A+","A-","B+","B-","AB+","AB-","O+","O-"],
+    dropdownDecoratorProps: DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(
+            labelText: "Menu mode",
+            hintText: "country in menu mode",
+        ),
+    ),
+    onChanged: print,
+    selectedItem: "Brazil",
+),
+TextButton(
+  style: TextButton.styleFrom(
+    foregroundColor: Colors.blue,
+    disabledForegroundColor: Colors.red,
+  ),
+  onPressed: null,
+  child: Text('Search Blood near you'),
+),
+
           CarouselSlider(
             items: [
               Container(
@@ -95,7 +126,55 @@ class _HomePageState extends State<HomePage> {
               viewportFraction: 0.8,
             ),
           ),
+          
         ]),
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          Material(
+            color: Color.fromARGB(255, 160, 44, 44),
+            child: InkWell(
+              onTap: () {
+                //print('called on tap');
+              },
+              child: const SizedBox(
+                height: kToolbarHeight,
+                width: 500 ,
+                child: Center(
+                  child: Text(
+                    'Register',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Material(
+              color: const Color(0xffff8906),
+              child: InkWell(
+                onTap: () {
+                  //print('called on tap');
+                },
+                child: const SizedBox(
+                  height: kToolbarHeight,
+                  width: 500,
+                  child: Center(
+                    child: Text(
+                      'Donate',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
