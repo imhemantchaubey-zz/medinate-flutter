@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
 class HomePage extends StatefulWidget {
+  
   const HomePage({super.key});
 
   @override
@@ -10,8 +11,38 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Settings',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+  
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
           title: const Text("Medinate.com"),
@@ -97,7 +128,55 @@ class _HomePageState extends State<HomePage> {
               viewportFraction: 0.8,
             ),
           ),
+          
         ]),
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          Material(
+            color: Color.fromARGB(255, 160, 44, 44),
+            child: InkWell(
+              onTap: () {
+                //print('called on tap');
+              },
+              child: const SizedBox(
+                height: kToolbarHeight,
+                width: 500 ,
+                child: Center(
+                  child: Text(
+                    'Register',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Material(
+              color: const Color(0xffff8906),
+              child: InkWell(
+                onTap: () {
+                  //print('called on tap');
+                },
+                child: const SizedBox(
+                  height: kToolbarHeight,
+                  width: 500,
+                  child: Center(
+                    child: Text(
+                      'Donate',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
