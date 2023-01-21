@@ -3,6 +3,7 @@ import 'package:medinate/pages/organization_registration_page.dart';
 import 'blood_drive_registration_page.dart';
 import 'donor_registration_page.dart';
 import 'package:medinate/pages/home_page.dart';
+
 class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
 
@@ -15,31 +16,30 @@ class TabBarDemo extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  text: "Donor Registration",
-                  icon: Icon(Icons.attribution),
-                ),
-                Tab(
-                  text: "Organization Registration",
-                  icon: Icon(Icons.business),
-                ),
-                Tab(
-                  text: "Register VDB camp",
-                  icon: Icon(Icons.chalet),
-                ),
-              ],
-            ),
-            centerTitle: true,
-            title: const Text('Registration Page'),
-            leading: new IconButton(
-            icon: new Icon(Icons.arrow_back),
-            onPressed: (){
-              _navigateToHomeScreen(context);
-            },
-          )
-          ),
+              bottom: const TabBar(
+                tabs: [
+                  Tab(
+                    text: "Donor Registration",
+                    icon: Icon(Icons.attribution),
+                  ),
+                  Tab(
+                    text: "Organization Registration",
+                    icon: Icon(Icons.business),
+                  ),
+                  Tab(
+                    text: "Register VBD camp",
+                    icon: Icon(Icons.chalet),
+                  ),
+                ],
+              ),
+              centerTitle: true,
+              title: const Text('Registration Page'),
+              leading: new IconButton(
+                icon: new Icon(Icons.arrow_back),
+                onPressed: () {
+                  _navigateToHomeScreen(context);
+                },
+              )),
           body: TabBarView(
             children: [
               DonorReg(),
@@ -52,6 +52,8 @@ class TabBarDemo extends StatelessWidget {
     );
   }
 }
+
 void _navigateToHomeScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
-  }
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => HomePage()));
+}
