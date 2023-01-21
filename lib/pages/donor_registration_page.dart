@@ -11,6 +11,11 @@ class DonorReg extends StatelessWidget{
   TextEditingController userphone = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController userpass = TextEditingController();
+  var _gend = [
+    "Male",
+    "female",
+    "other"
+  ];
   @override
   Widget build(BuildContext context){
     return Padding(
@@ -66,6 +71,7 @@ class DonorReg extends StatelessWidget{
                 ),
               ),
             ),
+            
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
